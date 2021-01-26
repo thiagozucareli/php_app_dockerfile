@@ -2,8 +2,8 @@
 FROM php:7.4.14-apache-buster
 # Enabling REWRITE Apache module.
 RUN a2enmod rewrite && service apache2 restart
-# Installing libs for PHP modules dependencies.
-RUN apt update && apt install -y zlib1g-dev libpng-dev libzip-dev
+# Installing libs for PHP modules dependencies and VIM for editing.
+RUN apt update && apt install -y zlib1g-dev libpng-dev libzip-dev vim
 # Installing and enabling PHP modules.
 RUN docker-php-ext-install gd mysqli zip
 # Create the volumes for maintaining the PHP and Apache configuration, and the application as well.
